@@ -1162,7 +1162,9 @@ channels:
   - fenghuangzhongwentai
   sources:
   - type: epgpw_api
-    id: '495069'
+    id: '410378'
+  - type: epgpw_api
+    id: '554430'
   logo: 凤凰中文
 - id: fenghuangzixun
   name: 凤凰资讯台
@@ -1174,7 +1176,11 @@ channels:
   - fenghuangzixuntai
   sources:
   - type: epgpw_api
-    id: '495070'
+    id: '410355'
+  - type: epgpw_api
+    id: '369783'
+  - type: epgpw_api
+    id: '554431'
   logo: 凤凰资讯
 - id: fenghuangxianggang
   name: 凤凰香港台
@@ -1186,7 +1192,7 @@ channels:
   - PhoenixHongKong
   sources:
   - type: epgpw_api
-    id: '495071'
+    id: '554432'
   logo: 凤凰香港
 - id: tvbfeicuitai
   name: TVB 翡翠台
