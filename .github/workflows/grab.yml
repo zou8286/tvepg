@@ -22,6 +22,11 @@ on:
         type: boolean
         default: false
 
+# 同一时间只允许一个抓取运行，新的会取消旧的
+concurrency:
+  group: epg-grab
+  cancel-in-progress: true
+
 jobs:
   grab:
     name: 抓取节目单
