@@ -1,4 +1,13 @@
 {
+  "observability": {
+  	"enabled": true,
+  	"head_sampling_rate": 1,
+  	"logs": {
+  		"enabled": true,
+  		"head_sampling_rate": 1,
+  		"invocation_logs": true
+  	}
+  },
   // Cloudflare Worker 配置文件
   // 文档: https://developers.cloudflare.com/workers/wrangler/configuration/
   "name": "laobaiepg",
