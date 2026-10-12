@@ -267,15 +267,42 @@ async function handleMatch(request, env, ctx, corsHeaders) {
 }
 
 /**
- * GET /guide.xml 等 - 提供 XMLTV 文件
+ * GET/HEAD /guide.xml 等 - 提供 XMLTV 文件
  */
 async function handleXmltv(request, env, ctx, path, corsHeaders) {
   const filename = path.replace('/', ''); // "guide.xml" 或 "guide.xml.gz"
   const isGzip = filename.endsWith('.gz');
-
-  // 使用 Cloudflare Cache API 缓存
-  const cacheKey = new Request(request.url, request);
   const cache = caches.default;
+
+  // HEAD: 只取 R2 元数据（head 不读 body，省 Class B 费用），
+  // 不走 Cache API（cache.put 仅支持 GET，曾在此抛
+  // "Cannot cache response to non-GET request" 刷错误日志）
+  if (request.method === 'HEAD') {
+    if (!env.EPG_BUCKET) {
+      return new Response(null, { status: 503, headers: { ...corsHeaders } });
+    }
+    const head = await env.EPG_BUCKET.head(`${R2_PREFIX}${filename}`);
+    if (!head) {
+      return new Response(null, {
+        status: 503,
+        headers: { ...corsHeaders, 'Retry-After': '3600' },
+      });
+    }
+    return new Response(null, {
+      status: 200,
+      headers: {
+        ...corsHeaders,
+        'Content-Type': isGzip ? 'application/gzip' : 'text/xml;charset=utf-8',
+        'Content-Length': head.size,
+        'ETag': head.etag || '',
+        'Last-Modified': head.uploaded?.toUTCString() || new Date().toUTCString(),
+        'Cache-Control': `public, max-age=${CACHE_TTL.guide}`,
+      },
+    });
+  }
+
+  // GET: 走 Cache API 缓存
+  const cacheKey = new Request(request.url, request);
   let cachedResponse = await cache.match(cacheKey);
 
   if (cachedResponse) {
