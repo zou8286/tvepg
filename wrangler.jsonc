@@ -6,11 +6,6 @@
   "compatibility_date": "2024-01-01",
   "compatibility_flags": ["nodejs_compat"],
 
-  // Worker 资源限制
-  "limits": {
-    "cpu_ms": 30000
-  },
-
   // R2 Bucket 绑定（存储 XMLTV 文件）
   // 需要先在 Cloudflare Dashboard 或用 wrangler 创建:
   //   wrangler r2 bucket create epg-data
