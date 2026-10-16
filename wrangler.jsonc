@@ -24,7 +24,7 @@
   // 创建后将返回的 id 填入下方
   "kv_namespaces": [
     {
-      "binding": "EPG_KV",
+      "binding": "KV",
       "id": "2ab1f51b71d641d2862557945175abb2",
       "preview_id": "2ab1f51b71d641d2862557945175abb2"
     }
