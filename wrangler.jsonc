@@ -30,7 +30,7 @@
   "kv_namespaces": [
     {
       "binding": "EPG_KV",
-      "id": "cd823b3831464bbea7856c0bac7bd029",
+      "id": "2ab1f51b71d641d2862557945175abb2",
       "preview_id": "976eb85d564d4497b899036778b00f45"
     }
   ],
@@ -39,7 +39,7 @@
   // Fork 部署时修改 GITHUB_REPO 为自己的仓库（用户名/仓库名）
   "vars": {
     "ENVIRONMENT": "production",
-    "GITHUB_REPO": "zqs1qiwan/laobaiepg"
+    "GITHUB_REPO": "zou8286/tvepg"
   },
 
   // 自定义域名（可选）
