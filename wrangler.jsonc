@@ -31,7 +31,7 @@
     {
       "binding": "EPG_KV",
       "id": "2ab1f51b71d641d2862557945175abb2",
-      "preview_id": "976eb85d564d4497b899036778b00f45"
+      "preview_id": "2ab1f51b71d641d2862557945175abb2"
     }
   ],
 
@@ -46,7 +46,7 @@
   // 配置后可以用你自己的域名访问
   // Fork 部署时替换为自己的域名，或直接删除此配置使用 workers.dev 子域名
   "routes": [
-    { "pattern": "laobaiepg.laobaitv.net/*", "zone_name": "laobaitv.net" }
+    { "pattern": "tvepg.225333.xyz/*", "zone_name": "225333.xyz" }
   ],
 
   // 开发环境配置
