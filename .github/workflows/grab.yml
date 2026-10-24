@@ -49,8 +49,9 @@ jobs:
       - name: 执行抓取
         env:
           DEBUG: ${{ runner.debug }}
-          BRTV_PROXY_URL: ${{ secrets.BRTV_PROXY_URL }}
-          BRTV_PROXY_SECRET: ${{ secrets.BRTV_PROXY_SECRET }}
+          # [2026-10-24 归档] brtv 源暂停（上游 dynamic.rbc.cn 已下线），代理变量不再使用
+          # BRTV_PROXY_URL: ${{ secrets.BRTV_PROXY_URL }}
+          # BRTV_PROXY_SECRET: ${{ secrets.BRTV_PROXY_SECRET }}
         run: |
           ARGS=""
           # 手动触发时可指定天数，定时触发时不传（使用 sources.yaml 的 source_days 配置）

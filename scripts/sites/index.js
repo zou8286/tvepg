@@ -13,7 +13,8 @@ import { getEpgNowtv, getChannelsNowtv } from './nowtv.js';
 import { getEpgTbc, getChannelsTbc } from './tbc.js';
 import { getEpgEpgpwApi, getChannelsEpgpwApi } from './epgpw_api.js';
 import { getEpgTdm, getChannelsTdm } from './tdm.js';
-import { getEpgBrtv, getChannelsBrtv } from './brtv.js';
+// [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（NXDOMAIN），暂停该源
+// import { getEpgBrtv, getChannelsBrtv } from './brtv.js';
 import { getEpgKankanews, getChannelsKankanews } from './kankanews.js';
 import { getEpgShaanxi, getChannelsShaanxi } from './shaanxi.js';
 import { getEpgIqilu, getChannelsIqilu } from './iqilu.js';
@@ -55,10 +56,11 @@ export const scraperRegistry = {
     getEpg: getEpgTbc,
     getChannels: getChannelsTbc,
   },
-  brtv: {
-    getEpg: getEpgBrtv,
-    getChannels: getChannelsBrtv,
-  },
+  // [2026-10-24 归档] brtv 源暂停：上游 dynamic.rbc.cn 已下线
+  // brtv: {
+  //   getEpg: getEpgBrtv,
+  //   getChannels: getChannelsBrtv,
+  // },
   kankanews: {
     getEpg: getEpgKankanews,
     getChannels: getChannelsKankanews,

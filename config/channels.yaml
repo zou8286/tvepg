@@ -170,8 +170,9 @@ channels:
   - BTV2
   - BRTV文艺
   sources:
-  - type: brtv
-    id: '135'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '135'
   logo: 北京文艺
 - id: beijingtiyuxiuxian
   name: 北京体育休闲
@@ -184,8 +185,9 @@ channels:
   - BTV6
   - BRTV体育休闲
   sources:
-  - type: brtv
-    id: '138'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '138'
   logo: BRTV体育休闲
 - id: beijingyingshi
   name: 北京影视
@@ -197,8 +199,9 @@ channels:
   - BTV4
   - BRTV影视
   sources:
-  - type: brtv
-    id: '137'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '137'
   logo: 北京影视
 - id: beijingcaijing
   name: 北京财经
@@ -210,8 +213,9 @@ channels:
   - BTV5
   - BRTV财经
   sources:
-  - type: brtv
-    id: '133'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '133'
   logo: 北京财经
 - id: beijingshenghuo
   name: 北京生活
@@ -223,8 +227,9 @@ channels:
   - BTV7
   - BRTV生活
   sources:
-  - type: brtv
-    id: '139'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '139'
   logo: 北京生活
 - id: beijingxinwen
   name: 北京新闻
@@ -236,8 +241,9 @@ channels:
   - BTV9
   - BRTV新闻
   sources:
-  - type: brtv
-    id: '141'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '141'
   logo: 北京新闻
 - id: kakushaoer
   name: 卡酷少儿
@@ -254,8 +260,9 @@ channels:
   - BTV卡酷
   - BRTV卡酷少儿
   sources:
-  - type: brtv
-    id: '142'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '142'
   logo: 卡酷少儿
 - id: beijingjishikejiao
   name: 北京纪实科教
@@ -268,8 +275,9 @@ channels:
   - BTV12
   - BRTV纪实科教
   sources:
-  - type: brtv
-    id: '136'
+  # [2026-10-24 归档] BRTV 官方 EPG 接口 dynamic.rbc.cn 已下线（多 DNS NXDOMAIN），暂停 brtv 源
+  # - type: brtv
+  #   id: '136'
   logo: 北京纪实科教
 - id: CCTV1
   name: CCTV-1 综合

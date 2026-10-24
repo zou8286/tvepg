@@ -12,7 +12,7 @@
 ## ✨ 特性
 
 - **纯边缘化** — 完全运行在 Cloudflare 全球网络，无需自建服务器
-- **多源聚合** — 支持 epg.pw、CNTV官方(cntv)、北京台(brtv)、电视猫(tvmao)、看看新闻(kankanews)、陕西台(shaanxi)、澳门 TDM、香港 TVB 等多个数据源，自动换源
+- **多源聚合** — 支持 epg.pw、CNTV官方(cntv)、电视猫(tvmao)、看看新闻(kankanews)、陕西台(shaanxi)、澳门 TDM、香港 TVB 等多个数据源，自动换源（北京台 brtv 源因上游接口下线，2026-10 起归档暂停）
 - **数据保护** — 按日期维度合并新旧数据，抓取失败不丢失已有节目单，7 天窗口始终完整
 - **智能匹配** — CCTV 正则自动归一化 + 繁简自动转换 + 多别名匹配
 - **自动更新** — GitHub Actions 每天定时抓取，epg.pw 数据源一次抓取 7 天覆盖，节目单始终保持充足
@@ -96,7 +96,7 @@
 | `epgpw_api` | epg.pw JSON API，推荐，实时数据，7 天覆盖 | 无限制 |
 | `cntv` | CCTV 官方 API，CCTV 全系列 + 30 个卫视，7 天覆盖 | 无限制 |
 | `tvmao` | 电视猫 lighttv，覆盖大多数卫视/地方台，2 天覆盖 | 无限制（海外可访问，但有限速：~125次/IP） |
-| `brtv` | 北京广播电视台官方 API（BTV2/3/4/5/7/9/10/12，数据精准）| **需要中国大陆住宅 IP**，数据中心 IP 被阿里云 WAF 拦截 |
+| ~~`brtv`~~ | ~~北京广播电视台官方 API（BTV2/3/4/5/7/9/10/12）~~ **已归档**（2026-10-24）：上游 `dynamic.rbc.cn` 已下线（多 DNS NXDOMAIN），源暂停 | — |
 | `kankanews` | 上海广播电视台（SMG）官方 API，今日节目单精准 | 无限制 |
 | `shaanxi` | 陕西广播电视台官方 API，陕西卫视 + 5 个地方台，7 天覆盖 | 无限制 |
 | `iqilu` | 齐鲁网（山东广播电视台），山东卫视+8个地方台，仅当天 | 无限制 |
@@ -104,11 +104,14 @@
 | `tvb` | 香港无线电视官方 API（翡翠台/明珠台/TVB Plus/无线新闻台，4 天覆盖）| 无限制 |
 | `redbull` | Red Bull TV 官方 API（9 个运动频道，无鉴权，仅当天约 20 条）| 无限制 |
 
-> ⚠️ **部署注意**：`brtv` 数据源需要中国大陆住宅 IP 才能正常抓取。
-> - 使用 GitHub Actions（海外 IP）时，`tvmao`、`kankanews`、`cntv`、`shaanxi` 均可直连，但 `brtv` 需要通过国内住宅 IP 代理访问。
-> - 本仓库通过在路由器部署 HTTP 代理（`BRTV_PROXY_URL` 环境变量）解决 `brtv` 的访问问题。
-> - 如果你没有国内住宅 IP 代理，建议将 `brtv` 频道改用 `tvmao` 或 `epgpw_api` 作为数据源。
-> - `tvmao` 在 GitHub Actions 环境（海外 IP）下已验证可正常访问。
+> ⚠️ **2026-10-24 归档说明：BRTV 官方 EPG 源已停用**
+> - BRTV 官方接口 `https://dynamic.rbc.cn/bvradio_app/service/LIVE` 已无 DNS 解析（阿里/腾讯/114/北京联通 DNS 全部 NXDOMAIN），
+>   官网 `www.brtv.org.cn/TVjmd.shtml` 仍在引用该域名但同样失效，接口实际已下线。
+> - 因此 `brtv` 数据源及其住宅 IP 反代服务（brtv-proxy）已停止，`config/channels.yaml` 中 8 个北京本地频道
+>   （文艺/体育休闲/影视/财经/生活/新闻/卡酷少儿/纪实科教）的 `brtv` 源已注释归档，这些频道暂时没有节目单。
+> - 代码与代理实现保留（`scripts/sites/brtv.js`、`brtv-proxy/`）以便接口恢复后重新启用：
+>   取消 `config/sources.yaml`、`scripts/sites/index.js`、`config/channels.yaml` 中对应注释即可。
+> - `tvmao` 在 GitHub Actions 环境（海外 IP）下已验证可正常访问（⚠️ 数据准确性一般，未启用为北京本地台兜底）。
 
 ---
 

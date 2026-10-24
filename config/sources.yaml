@@ -8,7 +8,7 @@
 #   tvb        - 香港无线电视（备用）
 #   nowtv      - 香港 NOW TV（备用）
 #   tbc        - 台湾宽频（备用）
-#   brtv       - 北京广播电视台（需住宅IP/代理）
+#   brtv       - [已归档 2026-10-24] 北京广播电视台（dynamic.rbc.cn 已下线 NXDOMAIN，暂停使用）
 #   kankanews  - 看看新闻（上海台，仅当天+昨天）
 #   shaanxi    - 陕西广电（仅当天）
 #   iqilu      - 齐鲁网（仅当天）
@@ -36,7 +36,7 @@ crawl:
     nowtv: 7             # 稳定
     tbc: 7               # 稳定
     tdm: 7               # 稳定
-    brtv: 1              # 仅当天数据可用，历史数据不可靠
+    # brtv: 1            # [已归档 2026-10-24] 上游 dynamic.rbc.cn 已下线，暂停
     kankanews: 1          # 仅当天+昨天（已有内部过滤，设 1 天由内部逻辑处理）
     shaanxi: 1            # 仅当天数据
     iqilu: 1              # 仅当天数据，未来日期返回 code=1
